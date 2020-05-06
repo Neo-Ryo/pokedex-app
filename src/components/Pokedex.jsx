@@ -24,7 +24,7 @@ export default class Pokedex extends React.Component {
   async getPokemons() {
     try {
       const res = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon/?limit=150&offset=0%22"
+        "https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0%22"
       );
       this.setState({ pokemons: res.data.results });
       console.log(this.state.pokemons);
@@ -50,7 +50,7 @@ export default class Pokedex extends React.Component {
       return <Alert color="danger">An error as occured...</Alert>;
     }
     return (
-      <Row>
+      <Row style={{ minHeight: "100%" }}>
         {pokemons.map((pokemon) => (
           <Col xs="3">
             <Card>

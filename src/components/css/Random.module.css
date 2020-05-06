@@ -1,3 +1,4 @@
 .backgrd {
   background: center / cover url("../img/wpPokeBall.jpg");
+  min-height: 100%;
 }
