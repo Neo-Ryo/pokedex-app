@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavPokeBar from "./NavPokeBar";
 import PokeCaroussel from "./Home";
 import Pokedex from "./Pokedex";
+import RandomPoke from "./RandomPoke";
 
 export default function MyRouter() {
   return (
@@ -13,7 +14,7 @@ export default function MyRouter() {
             renders the first one that matches the current URL. */}
       <Switch>
         <Route path="/random">
-          <PokeCard />
+          <RandomPoke />
         </Route>
         <Route path="/pokedex">
           <Pokedex />
@@ -24,8 +25,4 @@ export default function MyRouter() {
       </Switch>
     </Router>
   );
-}
-
-function PokeCard() {
-  return <div>Random</div>;
 }

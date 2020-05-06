@@ -13,21 +13,24 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import styles from "./css/Random.module.css";
 
-export default class Pokedex extends React.Component {
+export default class RandomPoke extends React.Component {
   constructor(props) {
     super(props);
     this.state = { pokemon: [], isLoading: true, error: false };
-    this.randomPokemons = this.randomPokemons.bind(this);
+    this.getRandomPokemon = this.getRandomPokemon.bind(this);
   }
 
-  async randomPokemons() {
+  async getRandomPokemon() {
+    const { pokemon } = this.state;
+    const random = Math.floor(Math.random() * Math.floor(150));
     try {
       const res = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon/?limit=150&offset=0%22"
+        `https://pokeapi.co/api/v2/pokemon/${random}`
       );
-      this.setState({ pokemons: res.data.results });
-      console.log(this.state.pokemons);
+      this.setState({ pokemon: res.data });
+      console.log(res);
     } catch (err) {
       this.setState({ error: true });
       console.log("error!");
@@ -36,28 +39,26 @@ export default class Pokedex extends React.Component {
     }
   }
 
-  async getTheDetails() {}
-
-  async componentDidMount() {
-    const results = await this.getPokemons();
+  componentDidMount() {
+    this.getRandomPokemon();
   }
 
   render() {
-    const { isLoading, error, pokemons } = this.state;
+    const { isLoading, error, pokemon } = this.state;
     if (isLoading) {
-      return <Spinner color="warning" />;
+      return <Spinner color="primary" />;
     } else if (error) {
       return <Alert color="danger">An error as occured...</Alert>;
     }
     return (
-      <Row>
-        <Col xs="3">
+      <Row className={styles.backgrd}>
+        <Col xs="3" md={{ size: 3, offset: 4 }} style={{ marginTop: 50 }}>
           <Card>
             <CardImg
               top
               width="100%"
-              src="/assets/318x180.svg"
-              alt="Card image cap"
+              src={pokemon.sprites.front_default}
+              alt={pokemon.name}
             />
             <CardBody>
               <CardTitle>{pokemon.name}</CardTitle>
@@ -66,7 +67,7 @@ export default class Pokedex extends React.Component {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </CardText>
-              <Button>Button</Button>
+              <Button onClick={this.getRandomPokemon}>Button</Button>
             </CardBody>
           </Card>
         </Col>
