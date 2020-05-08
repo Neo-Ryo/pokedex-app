@@ -23,7 +23,6 @@ export default class RandomPoke extends React.Component {
   }
 
   async getRandomPokemon() {
-    const { pokemon } = this.state;
     const random = Math.floor(Math.random() * Math.floor(150));
     try {
       const res = await axios.get(
@@ -62,8 +61,8 @@ export default class RandomPoke extends React.Component {
             />
             <CardBody>
               <CardTitle>{pokemon.name}</CardTitle>
-              <CardSubtitle>Card subtitle</CardSubtitle>
-              <CardText>
+              <CardSubtitle className={styles.text}>Card subtitle</CardSubtitle>
+              <CardText className={styles.text}>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </CardText>

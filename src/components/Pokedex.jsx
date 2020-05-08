@@ -4,21 +4,26 @@ import {
   Spinner,
   Alert,
   Card,
-  CardImg,
-  CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
-  Button,
   Row,
   Col,
+  Button,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default class Pokedex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pokemons: [], isLoading: true, error: false };
+    this.state = {
+      pokemons: [],
+      pokeDetails: [],
+      modal: false,
+      isLoading: true,
+      error: false,
+    };
     this.getPokemons = this.getPokemons.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   async getPokemons() {
@@ -36,7 +41,10 @@ export default class Pokedex extends React.Component {
     }
   }
 
-  async getTheDetails() {}
+  toggle() {
+    this.setState({ modal: !this.state.modal });
+    console.log(this.state.modal);
+  }
 
   componentDidMount() {
     this.getPokemons();
@@ -51,23 +59,16 @@ export default class Pokedex extends React.Component {
     }
     return (
       <Row style={{ minHeight: "100%" }}>
-        {pokemons.map((pokemon) => (
-          <Col xs="3">
+        {pokemons.map((pokemon, id) => (
+          <Col xs="3" style={{ margin: 20 }} key={id}>
             <Card>
-              <CardImg
-                top
-                width="100%"
-                src="/assets/318x180.svg"
-                alt="Card image cap"
-              />
               <CardBody>
-                <CardTitle>{pokemon.name}</CardTitle>
-                <CardSubtitle>Card subtitle</CardSubtitle>
-                <CardText>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </CardText>
-                <Button>Button</Button>
+                <CardTitle style={{ whiteSpace: "nowrap" }}>
+                  {pokemon.name}
+                </CardTitle>
+                <Link to={`pokemon/${id}/`}>
+                  <Button>Details</Button>
+                </Link>
               </CardBody>
             </Card>
           </Col>

@@ -3,6 +3,7 @@ import { UncontrolledCarousel } from "reactstrap";
 import PikaWallp from "./img/pikachi-wallp.jpg";
 import Tortank from "./img/tortank.jpg";
 import EvoMulti from "./img/evoli-drksdofthmn.jpg";
+import styles from "./css/Home.module.css";
 const items = [
   {
     src: Tortank,
@@ -27,6 +28,8 @@ const items = [
   },
 ];
 
-const PokeCaroussel = () => <UncontrolledCarousel items={items} />;
+const PokeCaroussel = () => (
+  <UncontrolledCarousel items={items} className={styles.caroussel} />
+);
 
 export default PokeCaroussel;
