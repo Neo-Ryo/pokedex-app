@@ -14,15 +14,12 @@ export default function MyRouter() {
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
       <Switch>
-        <Route path="/pokemon/:id/">
-          <MonoPoke />
-        </Route>
-        <Route path="/random">
-          <RandomPoke />
-        </Route>
-        <Route path="/pokedex">
-          <Pokedex />
-        </Route>
+        <Route path="/random" component={RandomPoke} />
+
+        <Route path="/pokemon/:pokeId" component={MonoPoke} />
+
+        <Route path="/pokedex" component={Pokedex} />
+
         <Route exact path="/">
           <PokeCaroussel />
         </Route>

@@ -1,0 +1,8 @@
+.page {
+  background: center / cover url("../img/pokemonlandscap.jpg");
+}
+
+.text {
+  font-family: "Orbitron", sans-serif;
+  margin: 40px;
+}

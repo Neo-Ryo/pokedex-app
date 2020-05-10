@@ -11,6 +11,7 @@ import {
   Button,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import styles from "./css/Pokedex.module.css";
 
 export default class Pokedex extends React.Component {
   constructor(props) {
@@ -58,16 +59,16 @@ export default class Pokedex extends React.Component {
       return <Alert color="danger">An error as occured...</Alert>;
     }
     return (
-      <Row style={{ minHeight: "100%" }}>
+      <Row className={styles.backgrd} xs="10">
         {pokemons.map((pokemon, id) => (
           <Col xs="3" style={{ margin: 20 }} key={id}>
-            <Card>
+            <Card color="info">
               <CardBody>
-                <CardTitle style={{ whiteSpace: "nowrap" }}>
-                  {pokemon.name}
-                </CardTitle>
-                <Link to={`pokemon/${id}/`}>
-                  <Button>Details</Button>
+                <CardTitle className={styles.title}>{pokemon.name}</CardTitle>
+                <Link to={`pokemon/${id + 1}/`}>
+                  <Button color="danger" className={styles.button}>
+                    Details
+                  </Button>
                 </Link>
               </CardBody>
             </Card>

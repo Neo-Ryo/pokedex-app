@@ -5,10 +5,8 @@ import {
   Alert,
   Card,
   CardImg,
-  CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
   Button,
   Row,
   Col,
@@ -61,11 +59,7 @@ export default class RandomPoke extends React.Component {
             />
             <CardBody>
               <CardTitle>{pokemon.name}</CardTitle>
-              <CardSubtitle className={styles.text}>Card subtitle</CardSubtitle>
-              <CardText className={styles.text}>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </CardText>
+
               <Button onClick={this.getRandomPokemon}>Button</Button>
             </CardBody>
           </Card>

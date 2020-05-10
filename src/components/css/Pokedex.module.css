@@ -1,0 +1,12 @@
+.backgrd {
+  background: center / cover url("../img/pokemon-game-landscape.png");
+}
+
+.title {
+  font-family: "Press Start 2P", cursive !important;
+  white-space: nowrap;
+}
+
+.button {
+  font-family: "Orbitron", sans-serif;
+}
