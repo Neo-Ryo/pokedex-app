@@ -6,6 +6,7 @@ import {
   Card,
   CardBody,
   CardTitle,
+  CardSubtitle,
   Row,
   Col,
   Button,
@@ -59,12 +60,19 @@ export default class Pokedex extends React.Component {
       return <Alert color="danger">An error as occured...</Alert>;
     }
     return (
-      <Row className={styles.backgrd} xs="10">
+      <Row className={styles.backgrd} offset="1">
         {pokemons.map((pokemon, id) => (
-          <Col xs="3" style={{ margin: 20 }} key={id}>
+          <Col
+            lg={{ size: 2, offset: 3 }}
+            md="4"
+            xs="12"
+            style={{ margin: 5 }}
+            key={id}
+          >
             <Card color="info">
               <CardBody>
                 <CardTitle className={styles.title}>{pokemon.name}</CardTitle>
+                <CardSubtitle>{id + 1}</CardSubtitle>
                 <Link to={`pokemon/${id + 1}/`}>
                   <Button color="danger" className={styles.button}>
                     Details

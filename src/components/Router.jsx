@@ -15,14 +15,9 @@ export default function MyRouter() {
             renders the first one that matches the current URL. */}
       <Switch>
         <Route path="/random" component={RandomPoke} />
-
         <Route path="/pokemon/:pokeId" component={MonoPoke} />
-
         <Route path="/pokedex" component={Pokedex} />
-
-        <Route exact path="/">
-          <PokeCaroussel />
-        </Route>
+        <Route exact path="/" component={PokeCaroussel} />
       </Switch>
     </Router>
   );
