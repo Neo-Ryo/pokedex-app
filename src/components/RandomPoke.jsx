@@ -49,7 +49,12 @@ export default class RandomPoke extends React.Component {
     }
     return (
       <Row className={styles.backgrd}>
-        <Col xs="3" md={{ size: 3, offset: 4 }} style={{ marginTop: 50 }}>
+        <Col
+          lg="3"
+          xs="12"
+          md={{ size: 4, offset: 4 }}
+          style={{ marginTop: 50 }}
+        >
           <Card>
             <CardImg
               top
