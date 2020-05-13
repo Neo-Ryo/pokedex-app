@@ -60,13 +60,13 @@ export default class Pokedex extends React.Component {
       return <Alert color="danger">An error as occured...</Alert>;
     }
     return (
-      <Row className={styles.backgrd} offset="1">
+      <Row className={styles.backgrd}>
         {pokemons.map((pokemon, id) => (
           <Col
-            lg={{ size: 2, offset: 3 }}
-            md="4"
-            xs="12"
-            style={{ margin: 5 }}
+            lg="2"
+            md={{ size: 4, offset: 1 }}
+            xs={{ size: 11 }}
+            style={{ margin: 10 }}
             key={id}
           >
             <Card color="info">

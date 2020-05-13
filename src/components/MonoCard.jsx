@@ -15,7 +15,7 @@ function PokeCard({ name, body, image, type }) {
   return (
     <Row xs="8">
       <Col></Col>
-      <Col xs="4">
+      <Col lg={{ size: 4, offset: 3 }} md="8" xs="12" style={{ margin: 5 }}>
         <Card color="info" style={{ margin: 50 }}>
           <CardTitle className={styles.title}>{name}</CardTitle>
 
