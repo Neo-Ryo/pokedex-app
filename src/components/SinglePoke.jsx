@@ -81,6 +81,7 @@ class MonoPoke extends React.Component {
           </Button>
         </Link>
         <PokeCard
+        
           name={pokeName}
           body={pokeDescription}
           image={pokeSprite}
